@@ -472,6 +472,12 @@ val x : int foo = {a = 5; b = 6}
 val y : float foo = {a = 3.14; b = 6}
 ```
 
+```ocaml
+type 'a foo = { a: 'a; b: int };;
+let x: int foo = { a = 5; b = 6 };;
+let y: float foo = { x with a = 3.14 };;
+```
+
 Like this RFC, OCaml does not allow the alternative further generalization:
 
 ```ocaml
