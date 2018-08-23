@@ -463,25 +463,25 @@ OCaml follows the approach described in this RFC, where changing the type of
 generic parameters is allowed with functional record update syntax. For
 example:
 
-```
-# type 'a foo = { a: 'a; b: int }
+```ocaml
+# type 'a foo = { a: 'a; b: int };;
 type 'a foo = { a : 'a; b : int; }
-# let x: int foo = { a = 5; b = 6 }
+# let x: int foo = { a = 5; b = 6 };;
 val x : int foo = {a = 5; b = 6}
-# let y: float foo = { x with a = 3.14 }
+# let y: float foo = { x with a = 3.14 };;
 val y : float foo = {a = 3.14; b = 6}
 ```
 
 Like this RFC, OCaml does not allow the alternative further generalization:
 
-```
-# type foo = { a: int; b: int }
+```ocaml
+# type foo = { a: int; b: int };;
 type foo = { a : int; b : int; }
-# type bar = { a: int; b: int }
+# type bar = { a: int; b: int };;
 type bar = { a : int; b : int; }
-# let x: foo = { a = 5; b = 6 }
+# let x: foo = { a = 5; b = 6 };;
 val x : foo = {a = 5; b = 6}
-# let y: bar = { x with a = 7 }
+# let y: bar = { x with a = 7 };;
 File "", line 1, characters 15-16:
 Error: This expression has type foo but an expression was expected of type
          bar
